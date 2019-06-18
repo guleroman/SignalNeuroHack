@@ -3,3 +3,4 @@ requests
 tensorflow
 numpy
 pandas
+pillow

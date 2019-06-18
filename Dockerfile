@@ -1,6 +1,6 @@
 FROM python:3-onbuild
 RUN pip3 install --upgrade pip
-RUN git clone  https://github.com/guleroman/SignalNeuroHack.git /APII
+RUN git clone  https://github.com/guleroman/SimpleDecisionDataHack.git /APII
 
 EXPOSE 3334
 
