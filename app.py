@@ -16,10 +16,15 @@ def dash_overview():
 	
 @app.route('/api', methods=['POST'])
 def UploadFiles():
-    upload = request.files.get()
-    upload.save(upload.filename)
-    print(upload.filename)
+    #upload = request.files.get()
+    #upload.save(upload.filename)
+    #print(upload.filename)
     start_time = time.time()
+    data_post = json.loads(request.data) 
+    lat = data_post['lat'] # инн - заказчика
+    long = data_post['long']
+    data = data_post['data']
+    time = data_post['time']
     #table = (pd.read_csv('test/'+uploadinc.filename,sep=' ',header=None,dtype={0:'str',1:'str'}))
     #if len(table.T) == 2:
     #    del table[0]
@@ -35,7 +40,13 @@ def UploadFiles():
     #print(sqrt(mean_squared_error(y_test, preds)))
     #print(mean_absolute_error(y_test, preds))
     print("--- %s seconds ---" % (time.time() - start_time))
-    return jsonify({"BIS-index":"29.2344123123"})
+    return jsonify({
+      "lat":lat,
+      "long":long,
+      "data":data,
+      "time":time,
+      "precision_class":"normal"
+      })
     
 #if __name__ == '__main__':
   #  app.run(,use_reload=True)
