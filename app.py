@@ -14,10 +14,10 @@ import pandas as pd #модуль для работы с таблицами
 def dash_overview():
 	return render_template('index.html')
 	
-@app.route('/upload', methods=['POST'])
+@app.route('/api', methods=['POST'])
 def UploadFiles():
-    print ("inside upload files")
-    #uploadinc = request.files.get('uploadinc')
+    
+    uploadinc = request.files.get('uploadinc')
     #uploadinc.save(uploadinc.filename)
     #print(uploadinc.filename)
     start_time = time.time()
