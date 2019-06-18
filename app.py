@@ -7,7 +7,8 @@ import pandas as pd #модуль для работы с таблицами
 import requests
 from utils import label_map_util
 from utils import visualization_utils as vis_util
-    
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg 
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
@@ -33,6 +34,7 @@ def dash_overview():
 	
 @app.route('/api/<file_name>', methods=['POST'])
 def UploadFiles(file_name):
+    data_post = json.loads(request.data) 
     lat = data_post['lat'] 
     long = data_post['long']
     data = data_post['data']
