@@ -17,9 +17,9 @@ def dash_overview():
 @app.route('/api', methods=['POST'])
 def UploadFiles():
     
-    uploadinc = request.files.get('uploadinc')
-    #uploadinc.save(uploadinc.filename)
-    #print(uploadinc.filename)
+    upload = request.files.get()
+    upload.save(upload.filename)
+    print(upload.filename)
     start_time = time.time()
     #table = (pd.read_csv('test/'+uploadinc.filename,sep=' ',header=None,dtype={0:'str',1:'str'}))
     #if len(table.T) == 2:
