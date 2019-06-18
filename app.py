@@ -16,7 +16,6 @@ def dash_overview():
 	
 @app.route('/api', methods=['POST'])
 def UploadFiles():
-    
     upload = request.files.get()
     upload.save(upload.filename)
     print(upload.filename)
